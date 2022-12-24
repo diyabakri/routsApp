@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+        <link rel="stylesheet" href="../public/css/style.css">
+    <title>Contact</title>
+</head>
+<body>
+
+    <div class="backhome">
+        <a href="home">Back To Home</a>
+    </div>
+  <main class="home_page">
+    <div class="mainImage">
+      <img src="../public/imgs/front.jpg" alt="">
+    </div>
+
+    <!-- logo -->
+    <div class="Form_Logo">
+        <img src="../public/imgs/logo.jpg" alt="logo">
+    </div>
+    <form action="" class="form">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name="" id="username">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="" id="email">
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" name="" id="address">
+        </div>
+
+        <div class="form-group">
+            <label for="">Message</label>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+        </div>
+
+        <button id="success" type="button"> Send </button>
+    </form>
+  </main>
+  <script src="../public/scripts/main.js"></script>
+
+  <script>
+    	$(document).on('click', '#success', function(e) {
+			swal(
+				'Success',
+				' Information Sent <b style="color:green;">Successfully</b> !',
+				'success'
+			)
+		});
+  </script>
+</body>
+</html>

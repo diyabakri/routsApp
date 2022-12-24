@@ -1,0 +1,58 @@
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../public/scripts/Login.js"></script>
+<link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rouets App</title>
+</head>
+
+<body class="d-flex flex-row justify-content-center " style="background-image: url('../public/imgs/front.jpg'); background-size: 100%;">
+    <div class="h-50 w-50">
+        <section class="vh-100 gradient-custom">
+            <div class="container h-100 w-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12  col-lg-6">
+                        <div class="card bg-light text-dark" style="border-radius: 1rem;">
+                            <div class="card-body text-center">
+
+                                <img src="../public/imgs/logo.jpg" class="img-fluid">
+
+                                <div class="mb-md-5 mt-md-4">
+
+                                    <h2 class="fw-bold text-uppercase">Login</h2>
+                                    
+                                    <p class="text-dark-50 ">Please enter your Email and password!</p>
+
+                                    <div class="form-outline form-white mb-4">
+
+                                        <input type="email" id="EmailInput" class="form-control form-control-lg" placeholder="Email" />
+
+                                    </div>
+
+                                    <div class="form-outline form-white mb-4">
+
+                                        <input type="password" id="passwordInput" class="form-control form-control-lg" placeholder="Password" />
+
+                                    </div>
+
+                                    <button class="btn btn-outline-dark btn-lg text-muted fw-bold px-5" type="submit" id="loginBtn" onclick="login()">Login</button>
+
+                                </div>
+                                    Dont have an account ? <a href="/Signup">Sign up</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js" type="text/javascri  pt"></script>
+</body>

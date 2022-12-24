@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Distances btn two cities App</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <script src="https://kit.fontawesome.com/ab2155e76b.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link href="public/css/style.css" rel="stylesheet" />
+  <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="bg-light">
+
+
+  <div class="backhome">
+    <a href="home">Back To Home</a>
+  </div>
+
+  <div class="mapLogo">
+    <img src="public/imgs/logo.jpg" alt="Logo">
+  </div>
+
+  <div id="inputs" class="row">
+
+
+
+    <div class="d-flex justify-content-center row">
+      <div class="col">
+        <label for="">Start Point :</label>
+        <input id="start" type="text" value="">
+      </div>
+
+      <div class="col">
+        <label for="Stops"> Stop Points : </label>
+        <input  class="col" value="" id="Stops" />
+        <button class="btn btn-outline-primary mx-0 col" type="submit" onclick="addStop()">Add stop</button>
+        
+      </div>
+
+      <div class="col">
+        <label for="">End Point</label>
+
+        <input id="end" type="text" value="">
+      </div>
+
+      <div class="col">
+        <label for=""> Choose Delivery Mode </label>
+        <select id="mode">
+          <option value="DRIVING">Driving</option>
+          <option value="WALKING">Walking</option>
+          <option value="BICYCLING">Bicycling</option>
+          <option value="TRANSIT">Transit</option>
+        </select>
+      </div>
+
+    </div>
+    <div class="d-flex justify-content-center  my-3 row">
+
+      <input type="submit" id="submit" class="btn btn-outline-primary border rounded-3" value="Show Rouet">
+    </div>
+
+  </div>
+    <!-- <div class="d-flex justify-content-center"> -->
+
+      <div class="map_content d-flex justify-content-center row">
+        <div id="stopsPanel" class="col-2"></div>
+        <div id="map"></div>
+      </div>
+      <!-- <div class="col"> -->
+        <!-- test -->
+      <!-- </div> -->
+    </div>
+
+
+
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9_ve_oT3ynCaAF8Ji4oBuDjOhWEHE92U&libraries=places"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+
+
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9_ve_oT3ynCaAF8Ji4oBuDjOhWEHE92U&callback=initMap&libraries=places&v=weekly"
+    defer></script>
+
+
+
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.js" type="text/javascri  pt"></script>
+  <script src="public/scripts/main.js"></script>
+  <script src="public/scripts/Stops.js"></script>
+
+</body>
+
+</html>

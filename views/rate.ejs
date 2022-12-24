@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+        <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+        <script src="../public/scripts/rate.js"></script>
+        <link href="../public/css/rate.css" rel="stylesheet" type="text/css">
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.js" type="text/javascri  pt"></script>
+        <title>Rate us</title>
+
+    </head>
+
+    <body class="d-flex flex-row justify-content-center " style="background-image: url('../public/imgs/front.jpg'); background-size: 100%;">
+        <div class="h-50 w-50">
+            <section class="vh-100 gradient-custom">
+                <div class="container h-100 w-100">
+                        <div class="col-12  ">
+                            <div class="card bg-light text-dark" style="border-radius: 1rem;">
+                                <div class="card-body text-center">
+                                    
+                                    <img src="../public/imgs/logo.jpg" class="img-fluid">
+                                        
+                                        <h4 class="fw-bold" >Your feedback is important to us</h4>
+
+                                        <h5 class="fw-bold ">rate your experiance</h5>
+                                        
+                                        <div class="rating">
+                                            <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                                            <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                                            <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                                            <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                                            <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>                                 
+                                        </div>
+
+                                        <button type="submit" id="subBtn" class="btn btn-outline-dark" onclick="sendrev()">Submit review </button>
+                                        <h5 class="fw-bold " id="thx" style="display: none;">Thank you for your feedback</h5>
+                                        
+                                </div>
+                            </div>
+                        </div>
+                </section>
+            </div>
+            
+
+        </div>
+
+    </body>
+
+</html>

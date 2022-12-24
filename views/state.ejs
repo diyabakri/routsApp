@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <script src="../public/scripts/rate.js"></script>
+    <link href="../public/css/rate.css" rel="stylesheet" type="text/css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js" type="text/javascri  pt"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <title></title>
+  </head>
+
+  <body class="h-100 w-100 d-flex flex-row justify-content-center" style="background-image: url('../public/imgs/front.jpg'); background-size: 100%;">
+    <div class="card chart-container h-50 w-50">
+        <canvas id="chart"></canvas>
+      </div>
+  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+</html>
+<script>
+    const chartData = {
+      type: 'bar',
+      data: {
+        labels: ["1", "2", "3", "4","5"],
+        datasets: [{
+          label: 'Ratings',
+          backgroundColor: 'rgba(161, 198, 247, 1)',
+          borderColor: 'rgb(47, 128, 237)',
+          data: [0, 0, 0, 0, 0],
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true,
+            }
+          }]
+        }
+      },
+    }
+    const ctx = document.getElementById("chart").getContext('2d');
+    const myChart = new Chart(ctx, chartData);
+    $.ajax({
+        url: "/stateData",
+        method: "GET",
+        processData: false,
+        success:updateChart
+      });
+      function updateChart(data){
+        const chData = []
+        for(let i = 1 ; i < 6 ; i++){
+            chData.push(data[i]);
+        }
+        chartData.data.datasets[0].data =chData;
+        myChart = new Chart(ctx, chartData);
+    }
+</script>
