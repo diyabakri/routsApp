@@ -1,5 +1,3 @@
-const { param } = require("jquery");
-
 function login(){
     const param = {}
     param.email = $("#EmailInput")[0].value;
@@ -16,9 +14,9 @@ function login(){
     });
 }
 function handelRes(res){
-    if(res.uid){
+    if(res.user){
         window.location.href ="/home"
     }else{
-        alert(res);
+        alert("Login error check username or password");
     }
 }
