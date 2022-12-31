@@ -2,6 +2,7 @@ const waypts = [];
 let loc;
 let map;
 let stations = [];
+let web = ""
 
 function getCuLoaction(){
   if (navigator.geolocation) {
@@ -74,25 +75,28 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     travelMode: google.maps.TravelMode[selectedMode],
   },  
 function(response, status) {
+  $("#gotoGo").hide(100);
   if (status === 'OK') {
     directionsDisplay.setDirections(response);
-    makeUrl()
+  $("#gotoGo").show(100);
+    makeUrl();
   } else {
     window.alert('Directions request failed due to ' + status);
   }
   }
   );
 }
+function goToGoogle(){
+  window.open(web);
+
+}
 function makeUrl(){
-  let web = `https://www.google.com/maps/dir/`
+  web = `https://www.google.com/maps/dir/`
   web+=`${loc.lat},${loc.lng}/`
   stations.forEach(element => {
       web+=`${element.location}/`
   });
   web+=document.getElementById('end').value
-  window.open(web);
-  // console.log(web);
-
 }
 
 $(document).ready(() => {

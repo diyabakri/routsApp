@@ -7,11 +7,11 @@ app = express();
 // const configVars = require("./config/Config"); 
 // const connection = require("./config/DataBase");
 
-const bp = require('body-parser')
+const bp = require('body-parser');
 
 // body-parser
-app.use(bp.json())
-app.use(bp.urlencoded({ extended: true }))
+app.use(bp.json());
+app.use(bp.urlencoded({ extended: true }));
 //use bootstrab and jquary files
 app.use("/public",express.static(__dirname + '/public'));
 app.use("/node_modules/jquery/dist/",express.static(__dirname + '/node_modules/jquery/dist/'));
@@ -20,7 +20,7 @@ app.use("/node_modules/bootstrap/dist/",express.static(__dirname + '/node_module
 require("dotenv").config({path:"./vars.env"});
 
 app.set("view engine" , "ejs");
-app.set("views", "./views")
+app.set("views", "./views");
 
 // connecting routers
 // app.use('/login',require("./routes/Login"));

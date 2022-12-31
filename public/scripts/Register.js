@@ -1,5 +1,14 @@
 let inputs;
-
+function machPasswords(){
+    
+    let pas = $("#password");
+    let confPas = $("#confirmPass"); 
+    if(pas[0].value !== confPas[0].value){
+        $("#confirmError").show();
+    }else{
+        $("#confirmError").hide();
+    }
+}
 function Register(){
     param = {};
     
@@ -18,6 +27,7 @@ function handle(res){
 }
 
 function useData(param){
+
     if(param.confirmPass === param.password){
 
     $.ajax({
