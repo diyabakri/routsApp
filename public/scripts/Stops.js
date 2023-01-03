@@ -1,9 +1,12 @@
-let id = 0;
 const Cords = [];
 let dis = [];
-function renderStop(stop){
+function renderStop(){
     let StopsArea = $("#stopsPanel");
-        let element = `
+    StopsArea.empty();
+    let id = 0;
+    waypts.forEach((stop)=>{
+        stop.id = id;
+        element = `
         <div id = "stop${id}">
             <div class="d-flex justify-content-center my-3 border-2 border-dark border-bottom">
             <label class="text-dark w-100 ">${stop.addr}</label>
@@ -13,6 +16,8 @@ function renderStop(stop){
         `;
     id++;
     StopsArea.append(element);
+    })
+        
 
 }
 function minimum(arr){
@@ -35,9 +40,11 @@ function get_geolocation(address){
         const lat = results[0].geometry.location.lat();
         const lon = results[0].geometry.location.lng();
         if(Cords.length === 0){
+            Cords.push([loc.lat,loc.lng]);
             Cords.push([lat,lon])
-            waypts.push({addr:address,id:id});
-            renderStop({addr:address,id:id});
+            waypts.push({addr:"Current location",id:0});
+            waypts.push({addr:address,id:0});
+            renderStop();
         }else{
             Cords.forEach((val,index)=>{distance([lat,lon],val)})
             let min = minimum(dis);
@@ -45,10 +52,14 @@ function get_geolocation(address){
                 return;
             }
             let index = dis.indexOf(min);
+            if(min > 1500){
+                index = dis.length-1;
+            }
             Cords.splice(index+1,0,[lat,lon]);
-            waypts.splice(index+1,0,{addr:address,id:id})
-            renderStop({addr:address,id:id});
+            waypts.splice(index+1,0,{addr:address,id:0})
+            renderStop();
         }
+        console.log(Cords);
     }
   });
 } 
@@ -63,6 +74,7 @@ function distance(p1,p2){
 }
 function addStop(){
     const Stop = $("#Stops")[0].value;
+    $("#Stops")[0].value = "";
     get_geolocation(Stop);
 }
 function removeStop(id){
@@ -73,5 +85,26 @@ function removeStop(id){
             Cords.splice(i,1);
             break;
         }
+    }
+}
+function rendeRoute(response){
+    const ander = $("#routePanel");
+    ander.empty();
+    let stops = response.routes[0].legs;
+    for(let i = 0 ; i < stops.length ; i++){
+        let stop = stops[i];
+        const param = {};
+        param.distance = stop.distance.text;
+        param.time = stop.duration.text;
+        param.start = stop.start_address;
+        param.end = stop.end_address;
+        ander.append(`<div id = "route${i+1}">
+        <div class="d-flex flex-column  justify-content-center my-3 border-2 border-dark border-bottom ">
+            <label class="text-dark row fw-bold mx-1">Start: ${param.start}</label>
+            <label class="text-dark row fw-bold mx-1">End:${param.end}</label>
+            <label class="text-dark row fw-bold mx-1">Distance:${param.distance}</label>
+            <label class="text-dark row fw-bold mx-1">Time:${param.time}</label>
+            </div>  
+        <div>`);
     }
 }

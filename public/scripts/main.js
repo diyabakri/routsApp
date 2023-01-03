@@ -3,7 +3,7 @@ let loc;
 let map;
 let stations = [];
 let web = ""
-
+let shit = 0;
 function getCuLoaction(){
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
@@ -33,11 +33,8 @@ function initMap() {
     center:loc
   });
   directionsDisplay.setMap(map);
-  
-  const start = document.getElementById('start');
   const end = document.getElementById('end');
   const Stop = document.getElementById('Stops');
-  new google.maps.places.Autocomplete(start);
   new google.maps.places.Autocomplete(end);
   new google.maps.places.Autocomplete(Stop);
 
@@ -50,12 +47,13 @@ function initMap() {
 
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+  shit++;
+  if(shit%2===1){
+    return;
+  }
   stations = [];
-  stations.push({
-    location: $("#start")[0].value,
-    stopover: true
-  });
-  for (var i = 0; i < waypts.length; i++) {
+
+  for (var i = 1; i < waypts.length; i++) {
     var address = waypts[i].addr;
     if (address !== '') {
       stations.push({
@@ -64,19 +62,19 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
       });
     }
   }
-  console.log(stations)
+
+  // console.log(stations)
   const selectedMode = document.getElementById("mode").value;
 
   directionsService.route({
     origin: loc,
     destination: document.getElementById('end').value,
     waypoints: stations,
-    optimizeWaypoints: false,
+    optimizeWaypoints: true,
     travelMode: google.maps.TravelMode[selectedMode],
-  },  
-function(response, status) {
-  $("#gotoGo").hide(100);
+  },function(response, status) {
   if (status === 'OK') {
+    rendeRoute(response);
     directionsDisplay.setDirections(response);
   $("#gotoGo").show(100);
     makeUrl();
@@ -88,18 +86,17 @@ function(response, status) {
 }
 function goToGoogle(){
   window.open(web);
-
 }
 function makeUrl(){
   web = `https://www.google.com/maps/dir/`
   web+=`${loc.lat},${loc.lng}/`
   stations.forEach(element => {
-      web+=`${element.location}/`
+  web+=`${element.location}/`
   });
   web+=document.getElementById('end').value
 }
 
 $(document).ready(() => {
   getCuLoaction();
-  initMap()
+  initMap();
 })
