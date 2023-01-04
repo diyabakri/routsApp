@@ -4,7 +4,7 @@ let map;
 let stations = [];
 let web = ""
 let shit = 0;
-function getCuLoaction(){
+function getCuLoaction() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -30,7 +30,7 @@ function initMap() {
   var directionsDisplay = new google.maps.DirectionsRenderer;
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 9,
-    center:loc
+    center: loc
   });
   directionsDisplay.setMap(map);
   const end = document.getElementById('end');
@@ -40,7 +40,7 @@ function initMap() {
 
 
 
-  document.getElementById('submit').addEventListener('click', function() {
+  document.getElementById('submit').addEventListener('click', function () {
     calculateAndDisplayRoute(directionsService, directionsDisplay);
   });
 }
@@ -48,7 +48,7 @@ function initMap() {
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   shit++;
-  if(shit%2===1){
+  if (shit % 2 === 1) {
     return;
   }
   stations = [];
@@ -72,28 +72,29 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     waypoints: stations,
     optimizeWaypoints: true,
     travelMode: google.maps.TravelMode[selectedMode],
-  },function(response, status) {
-  if (status === 'OK') {
-    rendeRoute(response);
-    directionsDisplay.setDirections(response);
-  $("#gotoGo").show(100);
-    makeUrl();
-  } else {
-    window.alert('Directions request failed due to ' + status);
-  }
+  }, function (response, status) {
+    if (status === 'OK') {
+      rendeRoute(response);
+      directionsDisplay.setDirections(response);
+      $("#gotoGo").show(100);
+      makeUrl(response);
+    } else {
+      window.alert('Directions request failed due to ' + status);
+    }
   }
   );
 }
-function goToGoogle(){
+function goToGoogle() {
   window.open(web);
 }
-function makeUrl(){
+function makeUrl(response) {
   web = `https://www.google.com/maps/dir/`
-  web+=`${loc.lat},${loc.lng}/`
-  stations.forEach(element => {
-  web+=`${element.location}/`
-  });
-  web+=document.getElementById('end').value
+  let stops = response.routes[0].legs;
+  for (let i = 0; i < stops.length; i++) {
+    let stop = stops[i];
+    web += `${stop.start_address}/`;
+  }
+  web += document.getElementById('end').value
 }
 
 $(document).ready(() => {
