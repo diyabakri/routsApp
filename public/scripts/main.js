@@ -14,6 +14,8 @@ function getCuLoaction() {
         };
         loc = pos;
         map.setCenter(pos);
+        initMap();
+
       },
       () => {
         handleLocationError(true, infoWindow, map.getCenter());
@@ -65,7 +67,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
   // console.log(stations)
   const selectedMode = document.getElementById("mode").value;
-
+  // getCuLoaction();
   directionsService.route({
     origin: loc,
     destination: document.getElementById('end').value,
@@ -99,5 +101,4 @@ function makeUrl(response) {
 
 $(document).ready(() => {
   getCuLoaction();
-  initMap();
 })
