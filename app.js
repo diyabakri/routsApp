@@ -30,7 +30,7 @@ app.use('/',require("./routes/Home"));
 const PORT = process.env.PORT || 80;
 const HOST = "localhost";
 // Start the server
-app.listen(80 , "localhost", () => {
+app.listen(80 , () => {
     console.log(`server is up on ${HOST} : 80`);
 })
 
