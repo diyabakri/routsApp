@@ -1,32 +1,64 @@
 const { async } = require("@firebase/util");
 const firestore = require("firebase/firestore");
+const FS = require("fs");
 const db = require("../config/Firebase").db;
 exports.Main = (req,res) => {
-    res.render("index");
+    FS.readFile("./views/index.html","utf8",(err,html)=>{
+        
+        res.status(200).send(html);
+    })// res.render("map");
 }
 exports.map = (req,res) => {
-    res.render("map");
+    FS.readFile("./views/map.html","utf8",(err,html)=>{
+        
+        res.status(200).send(html);
+    })// res.render("map");
 }
 exports.contactUS = (req,res) => {
-    res.render("contactUS");
+   FS.readFile("./views/contactUS.html","utf8",(err,html)=>{
+        
+        res.status(200).send(html);
+    }) // res.render("contactUS");
 }
 exports.aboutUs = (req,res) => {
-    res.render("aboutUs");
+   FS.readFile("./views/aboutUs.html","utf8",(err,html)=>{
+        
+        res.status(200).send(html);
+    }) // res.render("aboutUs");
 }
 exports.Login = (req,res) => {
-    res.render("Login");
+    FS.readFile("./views/Login.html","utf8",(err,html)=>{
+        
+        res.status(200).send(html);
+    })
 }
 exports.Signup = (req,res) => {
-    res.render("Signup");
+    FS.readFile("./views/Signup.html","utf8",(err,html)=>{
+        
+        res.status(200).send(html);
+    })
+    // res.render("Signup");
 }
 exports.newUser = (req,res) => {
-    res.render("Signup");
+    FS.readFile("./views/Signup.html","utf8",(err,html)=>{
+        
+        res.status(200).send(html);
+    })
+    // res.render("Signup");
 }
 exports.Rate = (req,res) => {
-    res.render("rate");
+    FS.readFile("./views/rate.html","utf8",(err,html)=>{
+        
+        res.status(200).send(html);
+    })
+    // res.render("rate");
 }
 exports.state = (req,res) => {
-    res.render("state");
+   FS.readFile("./views/state.html","utf8",(err,html)=>{
+        
+        res.status(200).send(html);
+    })
+    // res.render("state");
 }
 exports.saveRate =async (req,res) => {
 
