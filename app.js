@@ -27,10 +27,10 @@ app.set("views", "./views");
 app.use('/',require("./routes/Home"));
 
 // Hosting configrations
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 3000;
 const HOST = "localhost";
 // Start the server
-app.listen(80 , () => {
-    console.log(`server is up on ${HOST} : 80`);
+app.listen(PORT , () => {
+    // console.log(`server is up on ${HOST} : 80`);
 })
 
