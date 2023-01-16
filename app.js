@@ -14,21 +14,23 @@ app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 //use bootstrab and jquary files
 app.use("/public",express.static(__dirname + '/public'));
-app.use("/views",express.static(__dirname + '/views'));
 app.use("/node_modules/jquery/dist/",express.static(__dirname + '/node_modules/jquery/dist/'));
 app.use("/node_modules/bootstrap/dist/",express.static(__dirname + '/node_modules/bootstrap/dist/'));
 // envrioment vars 
 require("dotenv").config({path:"./vars.env"});
 
+app.set("view engine" , "ejs");
+app.set("views", "./views");
+
 // connecting routers
 // app.use('/login',require("./routes/Login"));
-// app.get("/",(req,res)=>{res.status(200).send("<html><body><h1>fuckkk</h1></body></html>")})
 app.use('/',require("./routes/Home"));
 
 // Hosting configrations
 const PORT = process.env.PORT || 80;
+const HOST = "localhost";
 // Start the server
-app.listen(80 , () => {
-    // console.log(`server is up on ${HOST} : 80`);
+app.listen(80 , "localhost", () => {
+    console.log(`server is up on ${HOST} : 80`);
 })
 
