@@ -6,7 +6,7 @@ const HomeController = require("../controllers/HomeController");
 const LoginController = require("../controllers/Login");
 const SignupController = require("../controllers/Signup");
 
-router.get("/" , (req,res)=>{res.status(200).send("shittt")});
+router.get("/" , HomeController.Login);
 
 router.get("/home" , HomeController.Main);
 
