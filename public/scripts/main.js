@@ -101,5 +101,5 @@ function makeUrl(response) {
 
 $(document).ready(() => {
   getCuLoaction();
-  setInterval(getCuLoaction,1500);
+  setInterval(getCuLoaction,15000);
 })

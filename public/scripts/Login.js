@@ -20,3 +20,22 @@ function handelRes(res){
         alert("Login error check username or password");
     }
 }
+function checkMobile(){
+  
+    const w = window.screen.availWidth;
+    const h = window.screen.availHeight;
+    
+    $("body").css("background-repeat","no-repeat");
+    $("body").css("background-attachment","fixed");
+    $("body").css("background-position","top");
+    
+    if(h>w){
+      $("body").removeClass("flex-row");
+      $("body").addClass("flex-column");
+      $("#LoginArea").removeClass("w-50");
+    }
+  
+}
+$(document).ready( () => {
+    checkMobile();
+})

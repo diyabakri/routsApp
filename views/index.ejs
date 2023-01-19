@@ -5,13 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/css/style.css">
+    <meta charset="utf-8" />
+    <title>Distances btn two cities App</title>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../public/scripts/index.js"></script>
+    <link href="public/css/style.css" rel="stylesheet" />
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+  
     <title>Your Route</title>
 </head>
-<body>
+<body class="" style="background-image: url('../public/imgs/front.jpg'); background-size: 100%;">
   <main class="home_page">
-    <div class="mainImage">
-      <img src="../public/imgs/front.jpg" alt="">
-    </div>
     <div class="container">
       <!-- start header -->
       <div class="header_top">
@@ -28,25 +32,19 @@
 
 
           <div class="buttons">
-            <button type="button" class="button2">
-              <a href="map">Map</a>
-            </button>
-            <button type="button" class="button1">
-              <a href="contactUS">Contact US</a>
-            </button>
-            <button type="button" class="button1 button3">
-              <a href="aboutUs">About US</a>
-            </button>
-
-            <button type="button" class="button1 button4">
-              <a href="Rate">Rate the app</a>
-            </button>
+            <label for="mapbtn" class = " btn btn-primary col-lg mx-1"  onclick="GotoMap()">Map</label>
+            <input id="mapbtn" class="btn-check" >
+            <label for="contactUSbtn" class = " btn btn-warning col-lg mx-1"onclick="contactUS()">Contact US</label>
+            <input id="contactUSbtn" class="btn-check" >
+            <label for="aboutUsbtn" class = " btn btn-danger col-lg mx-1" onclick="aboutUs()">About US</label>
+            <input id="aboutUsbtn" class="btn-check" >
+            <label for="Ratebtn" class = "btn btn-success col-lg mx-1" onclick="Rate()" >Rate US</label>
+            <input id="Ratebtn" class="btn-check" >
           </div>
         </div>
       </section>
     </div>
   </main>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9_ve_oT3ynCaAF8Ji4oBuDjOhWEHE92U&libraries=places&callback=initMap" async defer></script>
-  <script src="../public/scripts/main.js"></script>
+  <!-- <script src="../public/scripts/main.js"></script> -->
 </body>
 </html>

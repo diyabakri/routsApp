@@ -43,6 +43,23 @@ exports.saveRate =async (req,res) => {
         console.log("No such document!");
     }
 }
+exports.saveRevew =async (req,res) => {
+    // console.log(doc);
+
+    const review = req.body.val;
+    const docRef = firestore.doc(db, "Rates", "reviews");
+    const docSnap = await firestore.getDoc(docRef);
+    if (docSnap.exists()) {
+        let doc = docSnap.data();
+        doc.reviews.push(review);
+        doc.size++;
+        await firestore.setDoc(docRef,doc);
+        res.status(200).send("done");
+    } else {
+  // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}
 exports.getRates =async (req,res) => {
 
     const docRef = firestore.doc(db, "Rates", "Rate");

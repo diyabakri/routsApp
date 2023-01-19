@@ -14,18 +14,17 @@
         <link href="../public/css/rate.css" rel="stylesheet" type="text/css">
         <script src="../node_modules/bootstrap/dist/js/bootstrap.js" type="text/javascri  pt"></script>
         <title>Rate us</title>
-
     </head>
 
-    <body class="d-flex flex-row justify-content-center " style="background-image: url('../public/imgs/front.jpg'); background-size: 100%;">
-        <div class="h-50 w-50">
-            <section class="vh-100 gradient-custom">
+    <body class="d-flex flex-row justify-content-center bg-light" style="background-image: url('../public/imgs/front.jpg'); background-size: 100%;">
+        <div class="h-50 w-50" id = "rateArea">
+            <section class="">
                 <div class="container h-100 w-100">
                         <div class="col-12  ">
                             <div class="card bg-light text-dark" style="border-radius: 1rem;">
                                 <div class="card-body text-center">
                                     
-                                    <img src="../public/imgs/logo.jpg" class="img-fluid">
+                                    <img src="../public/imgs/logo.jpeg" class="img-fluid" style="height: 200px;">
                                         
                                         <h4 class="fw-bold" >Your feedback is important to us</h4>
 
@@ -46,10 +45,12 @@
                             </div>
                         </div>
                 </section>
-            </div>
-            <div class="card chart-container h-50 w-50">
-                <canvas id="chart"></canvas>
-            </div>
+            <textarea class="m-3 w-100" id="reviewText" placeholder="Write a review" style="height: 150px;"></textarea>
+
+        </div>
+        <div class="card chart-container h-50 w-50" id="chartArea">
+            <canvas id="chart"></canvas>
+        </div>
 
         </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
