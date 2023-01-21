@@ -26,6 +26,8 @@ router.get("/stateData" , HomeController.getRates);
 
 router.post("/stateData" , HomeController.saveRevew);
 
+router.post("/stateContact" , HomeController.saveRevew);
+
 router.post("/rate" , HomeController.saveRate);
 
 router.post("/Signup" , SignupController.CreatUser);

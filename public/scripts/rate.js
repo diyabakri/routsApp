@@ -1,11 +1,16 @@
 let btns = [];
 function sendrevText(){
+  const revText = $("#reviewText").val();
+  if(revText === ""){
+    alert("please write review text")
+    return;
+  }
   $.ajax({
     url: "/stateData",
     method: "POST",
     processData: false,
     contentType: 'application/json',
-    data:JSON.stringify({ val: `${$("#reviewText").val()}` }),
+    data:JSON.stringify({ val: `${revText}` }),
     
   });
   $("#reviewText").hide(100);
