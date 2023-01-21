@@ -1,4 +1,19 @@
 let btns = [];
+function sendrevText(){
+  $.ajax({
+    url: "/stateData",
+    method: "POST",
+    processData: false,
+    contentType: 'application/json',
+    data:JSON.stringify({ val: `${$("#reviewText").val()}` }),
+    
+  });
+  $("#reviewText").hide(100);
+  $("#reviewText")[0].value = "";
+  $("#subBtnText").hide(50);
+  $("#thxText").show(80);
+
+}
 function sendrev() {
   let found = false;
   btns.forEach((btn, index) => {
@@ -12,18 +27,11 @@ function sendrev() {
         data: JSON.stringify({ val: index + 1 }),
         success:(res) =>{updateChart()}
       });
-      $.ajax({
-        url: "/stateData",
-        method: "POST",
-        processData: false,
-        contentType: 'application/json',
-        data:JSON.stringify({ val: `${$("#reviewText").val()}` }),
-      });
+    
     }
   })
   if(found){
 
-    $("#reviewText").hide(100);
     $("#subBtn").hide(50);
     $("#thx").show(80);
   }

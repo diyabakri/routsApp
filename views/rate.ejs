@@ -16,9 +16,10 @@
         <title>Rate us</title>
     </head>
 
-    <body class="d-flex flex-row justify-content-center bg-light" style="background-image: url('../public/imgs/front.jpg'); background-size: 100%;">
-        <div class="h-50 w-50" id = "rateArea">
-            <section class="">
+    <body class="d-flex flex-column align-content-center justify-content-center bg-light" style="background-image: url('../public/imgs/front.jpg'); background-size: 100%;">
+        
+        <div class="row d-flex flex-row" id = "rateArea" >
+            <section class="col-xl">
                 <div class="container h-100 w-100">
                         <div class="col-12  ">
                             <div class="card bg-light text-dark" style="border-radius: 1rem;">
@@ -45,10 +46,26 @@
                             </div>
                         </div>
                 </section>
-            <textarea class="m-3 w-100" id="reviewText" placeholder="Write a review" style="height: 150px;"></textarea>
-
+                <section class="col-xl align-self-center w-100 my-3">
+                    <div class="container h-100 w-100">
+                        <div class="row  ">
+                            <div class="card bg-light text-dark" style="border-radius: 1rem;">
+                                <div class="card-body text-center d-flex align-content-center justify-content-center flex-column">
+                                    
+                                    <h5 class="fw-bold ">Write a reveiw of your experiance</h5>
+                                    
+                                    <textarea class="row w-100 align-self-center" style="height: 250px;" id="reviewText" placeholder="Write a review"></textarea>
+                                    <button type="submit" id="subBtnText" class="btn btn-outline-dark my-2 w-50 align-self-center" onclick="sendrevText()">Submit review </button>
+                                    <h5 class="fw-bold " id="thxText" style="display: none;">Thank you for your feedback</h5>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
         </div>
-        <div class="card chart-container h-50 w-50" id="chartArea">
+        
+        <div class="card chart-container row w-75 align-self-center my-3" id="chartArea" >
             <canvas id="chart"></canvas>
         </div>
 
