@@ -60,6 +60,25 @@ exports.saveRevew =async (req,res) => {
         console.log("No such document!");
     }
 }
+exports.saveContact =async (req,res) => {
+    // console.log(doc);
+    const contact = {};
+    contact.massage = req.body.msg;
+    contact.email = req.body.email;
+    
+    const docRef = firestore.doc(db, "Rates", "contactList");
+    const docSnap = await firestore.getDoc(docRef);
+    if (docSnap.exists()) {
+        let doc = docSnap.data();
+        doc[doc.size] = (contact);
+        doc.size++;
+        await firestore.setDoc(docRef,doc);
+        res.status(200).send("done");
+    } else {
+  // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}
 exports.getRates =async (req,res) => {
 
     const docRef = firestore.doc(db, "Rates", "Rate");

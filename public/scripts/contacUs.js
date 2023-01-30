@@ -19,10 +19,11 @@ function ContactUs(){
     });
     $("#email").hide(100);
     $("#emailLabel").hide(100);
-    $("#msg").hide(50);
-    $("#msgLabel").hide(50);
-    $("#msgbtn").hide(50);
-    $("#thx").show(80);
+    $("#msg").hide(100);
+    $("#msgLabel").hide(100);
+    $("#msgbtn").hide(100);
+    $("#msgbtnlab").hide(100);
+    $("#thx").show(150);
   
 }
 
